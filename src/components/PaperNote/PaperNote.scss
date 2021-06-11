@@ -46,12 +46,25 @@
 .navBar {
     display: flex;
     justify-content: space-between;
+    .showNotes {
+        display: flex;
+        align-items: center;
+    }
+}
+
+h1 {
+    cursor: pointer;
+}
+
+hr {
+    width: -webkit-fill-available;
+    border-block-color: black;
 }
 
 .notes {  
     overflow: overlay;
     display: grid;
-    margin: 10px 0;
+    margin: 10px 10px;
     height: max-content;
     text-align: center;
 }

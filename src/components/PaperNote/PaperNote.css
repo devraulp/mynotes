@@ -57,11 +57,29 @@
           justify-content: space-between;
 }
 
+.navBar .showNotes {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+h1 {
+  cursor: pointer;
+}
+
+hr {
+  width: -webkit-fill-available;
+  border-block-color: black;
+}
+
 .notes {
   overflow: overlay;
   display: -ms-grid;
   display: grid;
-  margin: 10px 0;
+  margin: 10px 10px;
   height: -webkit-max-content;
   height: -moz-max-content;
   height: max-content;

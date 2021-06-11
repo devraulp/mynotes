@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 /* eslint-disable no-console */
 import React, { useState, useEffect } from 'react';
 import './PaperNote.css';
@@ -17,6 +18,7 @@ export default function PaperNote() {
   const [notes, setNotes] = useState([]);
   const [recycledNotes, setRecycledNotes] = useState([]);
   const [recycledBin, setRecycledBin] = useState([]);
+  const [show, setShow] = useState(true);
 
   useEffect(() => {
     if (notes) {
@@ -67,8 +69,13 @@ export default function PaperNote() {
     setNotes(findId);
   };
 
+  const showNotes = () => {
+    setShow(true);
+  };
+
   const showBin = () => {
     setRecycledBin(JSON.parse(localStorage.getItem('RecycleBin')));
+    setShow(false);
   };
 
   const BinImage = recycledNotes.length > 0 ? (binFull) : (binEmpty);
@@ -86,24 +93,30 @@ export default function PaperNote() {
 
       <div className="notes">
         <div className="navBar">
-          <h1>Mis Notas</h1>
-          <img src={BinImage} alt="Save" className="noteImg" onClickCapture={() => showBin()} />
-        </div>
-        {notes.length > 0 ? (
-          notes.map((n) => (
-            <div key={n.id} className="note">
-              <h3>{n.name}</h3>
-              <p>{n.text}</p>
-              <img src={edit} alt="Save" className="noteImg" onClickCapture={() => EditNote(n.id)} />
-              <img src={recycle} alt="Save" className="noteImg" onClickCapture={() => sendToRecycleBin(n.id)} />
-            </div>
-          ))
-        ) : (
-          <p>No Tienes Notas</p>
-        )}
-        <div className="notes">
+          <div className="showNotes">
+            <h1 onClickCapture={showNotes}>Mis Notas</h1>
+          </div>
           <div>
-            {recycledBin.length > 0 ? (
+            <img src={BinImage} alt="Bin" className="noteImg" onClickCapture={showBin} />
+          </div>
+        </div>
+        <hr />
+        <div>
+          {show === true ? (
+            notes.length > 0 ? (
+              notes.map((n) => (
+                <div key={n.id} className="note">
+                  <h3>{n.name}</h3>
+                  <p>{n.text}</p>
+                  <img src={edit} alt="Save" className="noteImg" onClickCapture={() => EditNote(n.id)} />
+                  <img src={recycle} alt="Save" className="noteImg" onClickCapture={() => sendToRecycleBin(n.id)} />
+                </div>
+              ))
+            ) : (
+              <p>No Tienes Notas</p>
+            )
+          ) : (
+            recycledBin.length > 0 ? (
               recycledBin.map((n) => (
                 <div key={n.id} className="note recycledNote">
                   <h3>{n.name}</h3>
@@ -113,9 +126,9 @@ export default function PaperNote() {
                 </div>
               ))
             ) : (
-              <div />
-            )}
-          </div>
+              <p>No Tienes Notas en la Papelera</p>
+            )
+          )}
         </div>
       </div>
     </div>
