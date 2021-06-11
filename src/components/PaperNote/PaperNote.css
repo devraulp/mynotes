@@ -1,0 +1,132 @@
+.container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 30% 70%;
+      grid-template-columns: 30% 70%;
+  -ms-grid-rows: 100vh;
+      grid-template-rows: 100vh;
+}
+
+.noteBook input {
+  background-color: transparent;
+  margin: 75px 80px;
+  margin-bottom: 10px;
+  height: 50px;
+  width: 276px;
+  font-size: 35px;
+  text-align: center;
+  border: none;
+}
+
+.noteBook textarea {
+  background-color: transparent;
+  margin: 0px 80px;
+  width: 276px;
+  height: 380px;
+  font-size: 35px;
+  text-align: center;
+  border: none;
+}
+
+.noteBook #notebook {
+  position: absolute;
+  margin: 10px 54px;
+  z-index: -1;
+  width: 325px;
+}
+
+.noteBook #save {
+  width: 70px;
+  margin-left: 290px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.noteBook #pencil {
+  margin-left: 10px;
+  position: absolute;
+  height: -webkit-fill-available;
+}
+
+.navBar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.notes {
+  overflow: overlay;
+  display: -ms-grid;
+  display: grid;
+  margin: 10px 0;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  text-align: center;
+}
+
+.note {
+  background-color: #EAE2D4;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100px;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 10px 10px;
+  border-radius: 20px;
+  -webkit-box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.425);
+          box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.425);
+}
+
+.note h3 {
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+  width: 10%;
+  margin: 0;
+  padding: 20px;
+  border-right: brown solid 2px;
+  height: -webkit-fill-available;
+}
+
+.note p {
+  border-right: brown solid 2px;
+  height: -webkit-fill-available;
+  padding: 10px;
+  overflow-wrap: anywhere;
+  width: 75%;
+  margin: 0;
+  text-transform: capitalize;
+}
+
+.note button {
+  margin: 20px;
+}
+
+.noteImg {
+  width: 40px;
+  height: 40px;
+  margin: 20px;
+  cursor: pointer;
+}
+
+.recycleBin {
+  overflow: overlay;
+  display: -ms-grid;
+  display: grid;
+  margin: 10px 0;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  text-align: center;
+}
+
+.recycledNote {
+  background-color: #82603C;
+}
+/*# sourceMappingURL=PaperNote.css.map */

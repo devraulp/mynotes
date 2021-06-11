@@ -1,5 +1,15 @@
 /* eslint-disable no-console */
 import React, { useState, useEffect } from 'react';
+import './PaperNote.css';
+import notebook from '../../img/notebook.png';
+import save from '../../img/save.png';
+import pencil from '../../img/pencil.png';
+import edit from '../../img/edit.png';
+import recycle from '../../img/recycle.png';
+import binEmpty from '../../img/binEmpty.png';
+import binFull from '../../img/binFull.png';
+import restore from '../../img/restore.png';
+import erase from '../../img/erase.png';
 
 export default function PaperNote() {
   const [title, setTitle] = useState('');
@@ -15,7 +25,7 @@ export default function PaperNote() {
     if (recycledNotes) {
       localStorage.setItem('RecycleBin', JSON.stringify(recycledNotes));
     }
-  }, [notes, recycledBin, recycledNotes]);
+  }, [notes, recycledNotes]);
 
   const SaveNote = () => {
     const newNote = {
@@ -49,46 +59,64 @@ export default function PaperNote() {
     setNotes([...notes, restoreNote]);
   };
 
+  const EditNote = (id) => {
+    const noteToEdit = notes.find((n) => n.id === id);
+    setTitle(noteToEdit.name);
+    setContent(noteToEdit.text);
+    const findId = notes.filter((n) => n.id !== id);
+    setNotes(findId);
+  };
+
   const showBin = () => {
     setRecycledBin(JSON.parse(localStorage.getItem('RecycleBin')));
   };
 
+  const BinImage = recycledNotes.length > 0 ? (binFull) : (binEmpty);
+
   return (
-    <div>
-      <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
-      <textarea name="postit" value={content} cols="30" rows="10" onChange={(e) => setContent(e.target.value)} />
-      <button type="button" onClick={SaveNote}>Guardar</button>
-      <div>
+    <div className="container">
+
+      <div className="noteBook">
+        <img id="notebook" src={notebook} alt="notebook" />
+        <img id="pencil" src={pencil} alt="pencil" />
+        <input type="text" value={title} placeholder="TITULO" onChange={(e) => setTitle(e.target.value)} />
+        <textarea name="postit" value={content} placeholder="ESCRIBE TU NOTA AQUI" cols="30" rows="10" onChange={(e) => setContent(e.target.value)} />
+        <img id="save" src={save} alt="save" onClickCapture={SaveNote} />
+      </div>
+
+      <div className="notes">
+        <div className="navBar">
+          <h1>Mis Notas</h1>
+          <img src={BinImage} alt="Save" className="noteImg" onClickCapture={() => showBin()} />
+        </div>
         {notes.length > 0 ? (
-        // eslint-disable-next-line array-callback-return
           notes.map((n) => (
             <div key={n.id} className="note">
-              <h1>{n.name}</h1>
+              <h3>{n.name}</h3>
               <p>{n.text}</p>
-              <button type="button" onClick={() => sendToRecycleBin(n.id)}>X</button>
+              <img src={edit} alt="Save" className="noteImg" onClickCapture={() => EditNote(n.id)} />
+              <img src={recycle} alt="Save" className="noteImg" onClickCapture={() => sendToRecycleBin(n.id)} />
             </div>
           ))
         ) : (
-          <p>No hay Notas</p>
+          <p>No Tienes Notas</p>
         )}
-      </div>
-      <div>
-        <button type="button" onClick={showBin}>RecyclinBin</button>
-      </div>
-      <div>
-        {recycledBin ? (
-        // eslint-disable-next-line array-callback-return
-          recycledBin.map((n) => (
-            <div key={n.id} className="note">
-              <h1>{n.name}</h1>
-              <p>{n.text}</p>
-              <button type="button" onClick={() => restoreNotes(n.id)}>R</button>
-              <button type="button" onClick={() => deleteNote(n.id)}>X</button>
-            </div>
-          ))
-        ) : (
-          <div />
-        )}
+        <div className="notes">
+          <div>
+            {recycledBin.length > 0 ? (
+              recycledBin.map((n) => (
+                <div key={n.id} className="note recycledNote">
+                  <h3>{n.name}</h3>
+                  <p>{n.text}</p>
+                  <img src={restore} alt="Restore" className="noteImg" onClickCapture={() => restoreNotes(n.id)} />
+                  <img src={erase} alt="Delete" className="noteImg" onClickCapture={() => deleteNote(n.id)} />
+                </div>
+              ))
+            ) : (
+              <div />
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );
