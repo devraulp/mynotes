@@ -7,7 +7,7 @@
 .noteBook {
     input {
         background-color: transparent;
-        margin: 75px 80px;
+        margin: 75px 47px;
         margin-bottom: 10px;
         height: 50px;        
         width: 276px;
@@ -17,7 +17,7 @@
     }
     textarea {
         background-color: transparent;
-        margin: 0px 80px;
+        margin: 0px 47px;
         width: 276px;
         height: 380px;
         font-size: 35px;
@@ -26,22 +26,23 @@
     }
     #notebook {
         position: absolute;
-        margin: 10px 54px;
+        margin: 10px 20px;
         z-index: -1;
         width: 325px;
     }    
     #save {
         width: 70px;
-        margin-left: 290px;
+        margin-left: 255px;
         margin-top: 10px;
         cursor: pointer;
     }
     #pencil {
-        margin-left: 10px;
+        margin-left: 350px;
         position: absolute;
         height: -webkit-fill-available;
     }
 }
+
 
 .navBar {
     display: flex;
@@ -70,29 +71,30 @@ hr {
 }
 
 .note {
-    background-color: #EAE2D4;
+    background-image: url(../../img/note.png);
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-size: cover;
     display: flex;
-    height: 100px;
+    height: 154px;
     text-align: center;
     align-items: center;
     margin: 10px 10px;
     border-radius: 20px;
-    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.425);
     h3 {
+        text-align: right;
         text-transform: uppercase;
         overflow-wrap: anywhere;
-        width: 10%;
+        width: 20%;
         margin: 0;
-        padding: 20px;
-        border-right: brown solid 2px;
-        height: -webkit-fill-available;
+        padding: 40px;
+        border-right: black solid 2px;
     }
     p {
-        border-right: brown solid 2px;
-        height: -webkit-fill-available;
+        border-right: black solid 2px;
         padding: 10px;
         overflow-wrap: anywhere;
-        width: 75%;
+        width: 55%;
         margin: 0;
         text-transform:capitalize;
     }
@@ -114,8 +116,4 @@ hr {
     margin: 10px 0;
     height: max-content;
     text-align: center;
-}
-
-.recycledNote {
-    background-color: #82603C;
 }

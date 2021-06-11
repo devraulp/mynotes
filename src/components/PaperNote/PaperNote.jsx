@@ -118,7 +118,7 @@ export default function PaperNote() {
           ) : (
             recycledBin.length > 0 ? (
               recycledBin.map((n) => (
-                <div key={n.id} className="note recycledNote">
+                <div key={n.id} className="note">
                   <h3>{n.name}</h3>
                   <p>{n.text}</p>
                   <img src={restore} alt="Restore" className="noteImg" onClickCapture={() => restoreNotes(n.id)} />
