@@ -6,7 +6,7 @@ An application used to take notes, built with React, JavaScript, HTML and CSS.
 
 This project was developep as part of the bootcamp of Moove it. Users can write a note and saved in the localStorage, edited, deleted and keep it in the recycled bin, edit and restored from the recycled bin.
 
-![noteGif](./src/img/mynote.gif)
+![noteGif](./src/img/mynotes.gif)
 
 ## Installation and Setup Instructions
 
