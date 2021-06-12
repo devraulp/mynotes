@@ -7,6 +7,12 @@
       grid-template-rows: 100vh;
 }
 
+.noteBook {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 10px;
+}
+
 .noteBook input {
   background-color: transparent;
   margin: 75px 47px;
@@ -66,6 +72,49 @@
           align-items: center;
 }
 
+.navBar .showNotes button {
+  background-color: transparent;
+  border: none;
+  font-size: 35px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.navBar .showNotes button :active {
+  border-bottom: black 2px solid;
+}
+
+.navBar .showNotes p {
+  background-color: black;
+  border-radius: 40%;
+  padding: 0 7px;
+  font-weight: bold;
+  margin-top: 20px;
+  z-index: 1;
+  color: red;
+  font-size: 20px;
+}
+
+.navBar .showBin {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navBar .showBin p {
+  font-weight: bold;
+  position: absolute;
+  margin-top: 30px;
+  margin-left: 37px;
+  z-index: 1;
+  color: red;
+  font-size: 25px;
+  cursor: pointer;
+}
+
 h1 {
   cursor: pointer;
 }
@@ -79,7 +128,7 @@ hr {
   overflow: overlay;
   display: -ms-grid;
   display: grid;
-  margin: 10px 10px;
+  margin: 10px 20px;
   height: -webkit-max-content;
   height: -moz-max-content;
   height: max-content;

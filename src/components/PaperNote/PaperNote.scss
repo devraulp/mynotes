@@ -5,6 +5,8 @@
 }
 
 .noteBook {
+    position: sticky;
+    top: 10px;
     input {
         background-color: transparent;
         margin: 75px 47px;
@@ -50,6 +52,40 @@
     .showNotes {
         display: flex;
         align-items: center;
+        button {
+            background-color: transparent;
+            border: none;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+            :active {
+                border-bottom: black 2px solid;
+            }
+        }
+        p {
+            background-color: black;
+            border-radius: 40%;
+            padding: 0 7px;
+            font-weight: bold;
+            margin-top: 20px;
+            z-index: 1;
+            color: red;
+            font-size: 20px;
+        }
+    }
+    .showBin {
+        display: flex;
+        align-items: center;
+        p {
+            font-weight: bold;
+            position: absolute;
+            margin-top: 30px;
+            margin-left: 37px;
+            z-index: 1;
+            color: red;
+            font-size: 25px;
+            cursor: pointer;
+        }
     }
 }
 
@@ -65,7 +101,7 @@ hr {
 .notes {  
     overflow: overlay;
     display: grid;
-    margin: 10px 10px;
+    margin: 10px 20px;
     height: max-content;
     text-align: center;
 }

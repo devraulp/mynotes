@@ -1,5 +1,4 @@
 /* eslint-disable no-nested-ternary */
-/* eslint-disable no-console */
 import React, { useState, useEffect } from 'react';
 import './PaperNote.css';
 import notebook from '../../img/notebook.png';
@@ -16,20 +15,35 @@ export default function PaperNote() {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [notes, setNotes] = useState([]);
-  const [recycledNotes, setRecycledNotes] = useState([]);
   const [recycledBin, setRecycledBin] = useState([]);
   const [show, setShow] = useState(true);
+
+  useEffect(() => {
+    if (localStorage.length > 0) {
+      setNotes(JSON.parse(localStorage.getItem('SavedNotes')));
+    } else {
+      localStorage.setItem('SavedNotes', JSON.stringify([]));
+    }
+  }, []);
+
+  useEffect(() => {
+    if (localStorage.length > 0) {
+      setRecycledBin(JSON.parse(localStorage.getItem('RecycleBin')));
+    } else {
+      localStorage.setItem('RecycleBin', JSON.stringify([]));
+    }
+  }, []);
 
   useEffect(() => {
     if (notes) {
       localStorage.setItem('SavedNotes', JSON.stringify(notes));
     }
-    if (recycledNotes) {
-      localStorage.setItem('RecycleBin', JSON.stringify(recycledNotes));
+    if (recycledBin) {
+      localStorage.setItem('RecycleBin', JSON.stringify(recycledBin));
     }
-  }, [notes, recycledNotes]);
+  }, [notes, recycledBin]);
 
-  const SaveNote = () => {
+  const SaveNote = async () => {
     const newNote = {
       id: Math.floor(Math.random() * 1000) + 1,
       name: title,
@@ -44,20 +58,18 @@ export default function PaperNote() {
     const findId = notes.filter((n) => n.id !== id);
     setNotes(findId);
     const recycledNote = notes.find((n) => n.id === id);
-    setRecycledNotes([...recycledNotes, recycledNote]);
+    setRecycledBin([...recycledBin, recycledNote]);
   };
 
   const deleteNote = (id) => {
-    const findId = recycledNotes.filter((n) => n.id !== id);
-    setRecycledNotes(findId);
+    const findId = recycledBin.filter((n) => n.id !== id);
     setRecycledBin(findId);
   };
 
   const restoreNotes = (id) => {
-    const findId = recycledNotes.filter((n) => n.id !== id);
+    const findId = recycledBin.filter((n) => n.id !== id);
     setRecycledBin(findId);
-    setRecycledNotes(findId);
-    const restoreNote = recycledNotes.find((n) => n.id === id);
+    const restoreNote = recycledBin.find((n) => n.id === id);
     setNotes([...notes, restoreNote]);
   };
 
@@ -78,29 +90,49 @@ export default function PaperNote() {
     setShow(false);
   };
 
-  const BinImage = recycledNotes.length > 0 ? (binFull) : (binEmpty);
+  const BinImage = recycledBin.length > 0 ? (binFull) : (binEmpty);
+  let numberBinNotes;
+  const numberBin = () => {
+    if (recycledBin.length > 0) {
+      numberBinNotes = recycledBin.length;
+    }
+  };
+  numberBin();
+
+  let numberNotes;
+  const numberNotesSavec = () => {
+    if (notes.length > 0) {
+      numberNotes = notes.length;
+    }
+  };
+  numberNotesSavec();
 
   return (
     <div className="container">
 
-      <div className="noteBook">
+      <form className="noteBook">
         <img id="notebook" src={notebook} alt="notebook" />
         <img id="pencil" src={pencil} alt="pencil" />
         <input type="text" value={title} placeholder="TITULO" onChange={(e) => setTitle(e.target.value)} />
         <textarea name="postit" value={content} placeholder="ESCRIBE TU NOTA AQUI" cols="30" rows="10" onChange={(e) => setContent(e.target.value)} />
         <img id="save" src={save} alt="save" onClickCapture={SaveNote} />
-      </div>
+      </form>
 
       <div className="notes">
-        <div className="navBar">
+
+        <nav className="navBar">
           <div className="showNotes">
-            <h1 onClickCapture={showNotes}>Mis Notas</h1>
+            <button type="button" onClickCapture={showNotes}>Mis Notas</button>
+            <p onClickCapture={showNotes}>{numberNotes}</p>
           </div>
-          <div>
+          <div className="showBin">
+            <p onClickCapture={showBin}>{numberBinNotes}</p>
             <img src={BinImage} alt="Bin" className="noteImg" onClickCapture={showBin} />
           </div>
-        </div>
+        </nav>
+
         <hr />
+
         <div>
           {show === true ? (
             notes.length > 0 ? (
