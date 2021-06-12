@@ -127,7 +127,7 @@ export default function PaperNote() {
           </div>
           <div className="showBin">
             <p onClickCapture={showBin}>{numberBinNotes}</p>
-            <img src={BinImage} alt="Bin" className="noteImg" onClickCapture={showBin} />
+            <button type="button"><img src={BinImage} alt="Bin" className="noteImg" onClickCapture={showBin} /></button>
           </div>
         </nav>
 

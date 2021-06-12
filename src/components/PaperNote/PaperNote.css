@@ -46,6 +46,17 @@
   margin-left: 255px;
   margin-top: 10px;
   cursor: pointer;
+  padding: 2px;
+  border: transparent 2px solid;
+}
+
+.noteBook #save:hover {
+  border: black 2px solid;
+  border-radius: 20px;
+}
+
+.noteBook #save:active {
+  background-color: white;
 }
 
 .noteBook #pencil {
@@ -73,15 +84,23 @@
 }
 
 .navBar .showNotes button {
+  border-right: transparent;
+  border-bottom: black solid 2px;
+  border-left: transparent;
+  border-top: transparent;
+  padding: 10px;
   background-color: transparent;
-  border: none;
   font-size: 35px;
   font-weight: bold;
   cursor: pointer;
 }
 
-.navBar .showNotes button :active {
-  border-bottom: black 2px solid;
+.navBar .showNotes button:hover {
+  border-bottom: white solid 2px;
+}
+
+.navBar .showNotes button:active {
+  background-color: white;
 }
 
 .navBar .showNotes p {
@@ -89,10 +108,12 @@
   border-radius: 40%;
   padding: 0 7px;
   font-weight: bold;
-  margin-top: 20px;
+  margin-top: 15px;
+  margin-left: 5px;
   z-index: 1;
   color: red;
   font-size: 20px;
+  text-shadow: none;
 }
 
 .navBar .showBin {
@@ -107,12 +128,36 @@
 .navBar .showBin p {
   font-weight: bold;
   position: absolute;
-  margin-top: 30px;
-  margin-left: 37px;
+  margin-top: 20px;
+  margin-left: 23px;
   z-index: 1;
   color: red;
   font-size: 25px;
   cursor: pointer;
+  text-shadow: black 2px 2px;
+}
+
+.navBar .showBin button {
+  border-right: transparent;
+  border-bottom: black solid 2px;
+  border-left: transparent;
+  border-top: transparent;
+  background-color: transparent;
+  font-size: 35px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.navBar .showBin button img {
+  margin: 0;
+}
+
+.navBar .showBin button:hover {
+  border-bottom: white solid 2px;
+}
+
+.navBar .showBin button:active {
+  background-color: white;
 }
 
 h1 {
@@ -133,6 +178,12 @@ hr {
   height: -moz-max-content;
   height: max-content;
   text-align: center;
+}
+
+.notes p {
+  font-size: 40px;
+  font-weight: bold;
+  text-shadow: white 2px 2px;
 }
 
 .note {
@@ -163,6 +214,8 @@ hr {
 }
 
 .note p {
+  font-size: 18px;
+  font-weight: bold;
   border-right: black solid 2px;
   padding: 10px;
   overflow-wrap: anywhere;
