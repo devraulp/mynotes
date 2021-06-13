@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import MyNotes from './components/MyNotes';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <MyNotes />
   </React.StrictMode>,
   document.getElementById('root'),
 );

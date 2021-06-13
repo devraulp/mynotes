@@ -5,8 +5,6 @@
 }
 
 .noteBook {
-    position: sticky;
-    top: 10px;
     input {
         background-color: transparent;
         margin: 75px 47px;
@@ -26,7 +24,7 @@
         text-align: center;  
         border: none;
     }
-    #notebook {
+    #notebookimg {
         position: absolute;
         margin: 10px 20px;
         z-index: -1;
@@ -127,17 +125,12 @@
     }
 }
 
-h1 {
-    cursor: pointer;
-}
-
 hr {
     width: -webkit-fill-available;
     border-block-color: black;
 }
 
-.notes {  
-    overflow: overlay;
+.notes {
     display: grid;
     margin: 10px 20px;
     height: max-content;
@@ -150,8 +143,7 @@ hr {
 }
 
 .note {
-    background-image: url(../../img/note.png);
-    background-repeat: no-repeat;
+    background-image: url(../img/note.png);
     background-color: transparent;
     background-size: cover;
     display: flex;
@@ -159,7 +151,6 @@ hr {
     text-align: center;
     align-items: center;
     margin: 10px 10px;
-    border-radius: 20px;
     h3 {
         text-align: right;
         text-transform: uppercase;
@@ -200,5 +191,5 @@ hr {
 }
 
 .trash {
-    background-image: url(../../img/trashNote.png);
+    background-image: url(../img/trashNote.png);
 }

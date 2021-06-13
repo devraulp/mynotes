@@ -7,12 +7,6 @@
       grid-template-rows: 100vh;
 }
 
-.noteBook {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 10px;
-}
-
 .noteBook input {
   background-color: transparent;
   margin: 75px 47px;
@@ -34,7 +28,7 @@
   border: none;
 }
 
-.noteBook #notebook {
+.noteBook #notebookimg {
   position: absolute;
   margin: 10px 20px;
   z-index: -1;
@@ -160,17 +154,12 @@
   background-color: white;
 }
 
-h1 {
-  cursor: pointer;
-}
-
 hr {
   width: -webkit-fill-available;
   border-block-color: black;
 }
 
 .notes {
-  overflow: overlay;
   display: -ms-grid;
   display: grid;
   margin: 10px 20px;
@@ -187,8 +176,7 @@ hr {
 }
 
 .note {
-  background-image: url(../../img/note.png);
-  background-repeat: no-repeat;
+  background-image: url(../img/note.png);
   background-color: transparent;
   background-size: cover;
   display: -webkit-box;
@@ -200,7 +188,6 @@ hr {
       -ms-flex-align: center;
           align-items: center;
   margin: 10px 10px;
-  border-radius: 20px;
 }
 
 .note h3 {
@@ -247,6 +234,6 @@ hr {
 }
 
 .trash {
-  background-image: url(../../img/trashNote.png);
+  background-image: url(../img/trashNote.png);
 }
-/*# sourceMappingURL=PaperNote.css.map */
+/*# sourceMappingURL=style.css.map */
