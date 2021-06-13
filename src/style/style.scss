@@ -1,10 +1,11 @@
 .container {
     display: grid;
-    grid-template-columns: 30% 70%;
+    grid-template-columns: 40% 60%;
     grid-template-rows: 100vh;
 }
 
 .noteBook {
+    text-align: center;
     input {
         background-color: transparent;
         margin: 75px 47px;
@@ -23,6 +24,7 @@
         font-size: 35px;
         text-align: center;  
         border: none;
+        resize: none;
     }
     #notebookimg {
         position: absolute;
@@ -32,7 +34,7 @@
     }    
     #save {
         width: 70px;
-        margin-left: 255px;
+        margin-left: 215px;
         margin-top: 10px;
         cursor: pointer;
         padding: 2px;
@@ -156,8 +158,8 @@ hr {
         text-transform: uppercase;
         overflow-wrap: anywhere;
         width: 20%;
-        margin: 0;
-        padding: 40px;
+        margin: 0 0 0 25px;
+        padding: 10px;
         border-right: black solid 2px;
     }
     p {
@@ -192,4 +194,35 @@ hr {
 
 .trash {
     background-image: url(../img/trashNote.png);
+}
+
+@media only screen and (max-width: 425px) {
+    .container {
+        display: block;
+    }
+    .note {
+        height: 100px;
+        h3 {
+            margin-left: 15px;
+            padding: 5px;
+            font-size: 10px;
+            width: 25%;
+        }
+        p {
+            width: 45%;
+            padding: 5px;
+            font-size: 10px;
+        }
+    }
+    .noteImg {
+        width: 30px;
+        height: 30px;
+        margin: 5px;
+    }
+    .navBar .showBin {
+        p {
+            margin-top: 15px;
+            margin-left: 18px;
+        }
+    }
 }
