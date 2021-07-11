@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/mynotes/static/css/main.ff23d45b.chunk.css",
+    "main.js": "/mynotes/static/js/main.840aebba.chunk.js",
+    "main.js.map": "/mynotes/static/js/main.840aebba.chunk.js.map",
+    "runtime-main.js": "/mynotes/static/js/runtime-main.fc49be9b.js",
+    "runtime-main.js.map": "/mynotes/static/js/runtime-main.fc49be9b.js.map",
+    "static/js/2.75b80b07.chunk.js": "/mynotes/static/js/2.75b80b07.chunk.js",
+    "static/js/2.75b80b07.chunk.js.map": "/mynotes/static/js/2.75b80b07.chunk.js.map",
+    "index.html": "/mynotes/index.html",
+    "static/css/main.ff23d45b.chunk.css.map": "/mynotes/static/css/main.ff23d45b.chunk.css.map",
+    "static/js/2.75b80b07.chunk.js.LICENSE.txt": "/mynotes/static/js/2.75b80b07.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/mynotes/static/media/background.702855c0.jpg",
+    "static/media/binEmpty.508942d0.png": "/mynotes/static/media/binEmpty.508942d0.png",
+    "static/media/style.css": "/mynotes/static/media/trashNote.8f796b27.png",
+    "static/media/notebook.5a28c943.png": "/mynotes/static/media/notebook.5a28c943.png",
+    "static/media/recycle.508942d0.png": "/mynotes/static/media/recycle.508942d0.png",
+    "static/media/restore.68a2b2b5.png": "/mynotes/static/media/restore.68a2b2b5.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fc49be9b.js",
+    "static/js/2.75b80b07.chunk.js",
+    "static/css/main.ff23d45b.chunk.css",
+    "static/js/main.840aebba.chunk.js"
+  ]
+}
